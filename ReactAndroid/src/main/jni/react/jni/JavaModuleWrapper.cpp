@@ -117,6 +117,7 @@ void JavaNativeModule::invoke(
     int callId) {
   messageQueueThread_->runOnQueue(
       [this, reactMethodId, params = std::move(params), callId] {
+      LOG(INFO) << "DebugRN JavaModuleWrapper JavaNativeModule::invoke";
         static auto invokeMethod =
             wrapper_->getClass()
                 ->getMethod<void(jint, ReadableNativeArray::javaobject)>(

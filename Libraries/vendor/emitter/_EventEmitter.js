@@ -139,6 +139,7 @@ class EventEmitter<EventDefinitions: {...}> {
     eventType: K,
     ...args: $ElementType<EventDefinitions, K>
   ): void {
+    console.log('DebugRN, _EventEmitter.js emit ', eventType);
     const subscriptions = this._subscriber.getSubscriptionsForType(eventType);
     if (subscriptions) {
       for (let i = 0, l = subscriptions.length; i < l; i++) {
